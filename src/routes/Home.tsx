@@ -26,7 +26,8 @@ const Home = () => {
     }
   }, [location]);
 
-  const handleMore = useCallback(async() => {
+  //Função que carrega mais personagens vindos da API
+  const handleMore = useCallback(async () => {
     try {
       const offset = loadCharacters.length;
       const response = await config.get('/characters', {
@@ -34,23 +35,25 @@ const Home = () => {
           offset,
         }
       });
-      setLoadCharacters([...loadCharacters, ...response.data.data.results]);
+  
+      setLoadCharacters(prevCharacters => [...prevCharacters, ...response.data.data.results]);
     } catch (err) {
       console.log(err);
     }
-  }, []);
+  }, [loadCharacters]);
+  
   
   return (
     location.pathname === '/' && (
       <div>
-        <h1>Personagens Marvel</h1>
+        <h1>Personagens do universo Marvel</h1>
         <div className="container">
           {loadCharacters.map((character) => (
             <div key={character.id} className="card">
               <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt={character.name} />
               <h2>{character.name}</h2>
               <p>{character.description}</p>
-              <Link to={`/${character.id}`}>Ver mais</Link>
+              <Link to={`/${character.id}`}>Ver mais sobre o personagem</Link>
             </div>
             
           ))}
