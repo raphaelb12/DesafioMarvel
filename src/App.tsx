@@ -1,29 +1,22 @@
 import Navbar from './components/Navbar';
 import { Outlet } from 'react-router-dom';
-import { useEffect, useState } from 'react'
 import './App.css'
-import axios from 'axios'
-import { publicKey, time, hash, } from "./axios/config";
+import Home from './routes/Home';
 
 
 const App: React.FC = () => {
-  const [count, setCount] = useState(0)
 
-  useEffect(() => {
-    axios.get(`https://gateway.marvel.com/v1/public/characters?ts=${time}&apikey=${publicKey}&hash=${hash}`)
-      .then(response => console.log(response.data.data))
-      .catch(err => console.log(err));
-  }, []);
+
   
-
   return (
-    <>
-      <div>
-    <Navbar />
-    <h1>Desafio Marvel</h1>
-    <Outlet />
+    <div className="App">
+     <Navbar/> 
+     <h1>Desafio Marvel</h1>
+     <div className="container">
+      <Outlet />
+      <Home />
+     </div>
       </div>
-    </>
   )
 }
 
