@@ -1,53 +1,64 @@
-import React from 'react'
-
+import React, { useCallback } from 'react'
 import { useState, useEffect } from 'react'
-
-import { Link } from 'react-router-dom'
-
+import { Link, useLocation } from 'react-router-dom'
 import config from '../axios/config'
-
 import './Home.css'
 
-import axios from 'axios'
-
-//Estrutura para receber os dados de um personagem
 interface Character {
   id: string;
   name: string;
   description: string;
   thumbnail: {
     path: string;
-    extension: string;}
-  
+    extension: string;
+  };
 }
 
-
 const Home = () => {
-  const [posts, setPosts] = useState([])
-  const [loadCharacters, setloadCharacters] = useState<Character[]>([]); //Array de personagens
-  
-
+  const [loadCharacters, setLoadCharacters] = useState<Character[]>([]);
+  const location = useLocation();
 
   useEffect(() => {
-    config.get('/characters')
-    .then(response => setloadCharacters(response.data.data.results) )
-    .catch(err => console.log(err));}, []) 
+    if (location.pathname === '/') {
+      config.get('/characters')
+        .then(response => setLoadCharacters(response.data.data.results))
+        .catch(err => console.log(err));
+    }
+  }, [location]);
+
+  const handleMore = useCallback(async() => {
+    try {
+      const offset = loadCharacters.length;
+      const response = await config.get('/characters', {
+        params: {
+          offset,
+        }
+      });
+      setLoadCharacters([...loadCharacters, ...response.data.data.results]);
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
   
   return (
-    <div>
-      <h1>Personagens Marvel</h1>
-      <div className="container">
-        {loadCharacters.map((character) => (
-          <div key={character.id} className="card">
-            <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt={character.name} />
-            <h2>{character.name}</h2>
-            <p>{character.description}</p>
-            <Link to={`/character/${character.id}`}>Ver mais</Link>
-          </div>
-        ))}
+    location.pathname === '/' && (
+      <div>
+        <h1>Personagens Marvel</h1>
+        <div className="container">
+          {loadCharacters.map((character) => (
+            <div key={character.id} className="card">
+              <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt={character.name} />
+              <h2>{character.name}</h2>
+              <p>{character.description}</p>
+              <Link to={`/character/${character.id}`}>Ver mais</Link>
+            </div>
+            
+          ))}
+        </div>
+        <button className="bttn" onClick={handleMore}>Mais Personagens</button>
       </div>
-  </div>
-  )
-} 
-
-export default Home
+    )
+  );
+};
+//trocar rota do botão ver mais personagens
+export default Home;
