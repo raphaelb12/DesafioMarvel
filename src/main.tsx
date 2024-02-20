@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom'
 
 //páginas
 import Home from './routes/Home';
-import Characters from './routes/Characters';
+import Characters from './routes/Characters.tsx';
 import BuscarChar from './routes/BuscarChar.tsx'
 
 const router = createBrowserRouter([{
@@ -18,7 +18,7 @@ const router = createBrowserRouter([{
       element: <Home />
     },
     {
-      path: '/characters',
+      path: '/:id',
       element: <Characters />
     
     },

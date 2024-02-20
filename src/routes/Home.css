@@ -54,13 +54,13 @@
         padding: 0.5rem 1rem;
         border-radius: 1rem;
         opacity: 1;
-        cursor: pointer; /* Adiciona um cursor indicando que é clicável */
-        background-color: #007bff; /* Cor de fundo azul (pode ajustar conforme necessário) */
-        color: #fff; /* Cor do texto branca (pode ajustar conforme necessário) */
+        cursor: pointer; 
+        background-color: #007bff; 
+        color: #fff; 
       }
       
       .bttn:hover {
-        background-color: #0056b3; /* Cor de fundo ao passar o mouse (pode ajustar conforme necessário) */
+        background-color: #0056b3;
       }
   }
   

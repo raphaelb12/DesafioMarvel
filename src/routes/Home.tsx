@@ -50,7 +50,7 @@ const Home = () => {
               <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt={character.name} />
               <h2>{character.name}</h2>
               <p>{character.description}</p>
-              <Link to={`/character/${character.id}`}>Ver mais</Link>
+              <Link to={`/${character.id}`}>Ver mais</Link>
             </div>
             
           ))}
@@ -60,5 +60,4 @@ const Home = () => {
     )
   );
 };
-//trocar rota do botão ver mais personagens
 export default Home;
