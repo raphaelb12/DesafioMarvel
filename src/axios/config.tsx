@@ -14,6 +14,5 @@ const config = axios.create({
     apikey: publicKey,
     hash: hash, }
 })
+
 export default config;
-
-

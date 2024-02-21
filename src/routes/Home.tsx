@@ -35,7 +35,7 @@ const Home = () => {
         params: {
           offset,
         }
-      });
+      } );
   
       setLoadCharacters(prevCharacters => [...prevCharacters, ...response.data.data.results]);
     } catch (err) {
@@ -83,7 +83,7 @@ const Home = () => {
               ) : (
               <p>{character.description}</p>
               )}
-              <Link to={`/${character.id}`}>Ver mais sobre o personagem</Link>
+              <Link to={`/characters/${character.id}`}>Ver mais sobre o personagem</Link>
             </div>
             
           ))}

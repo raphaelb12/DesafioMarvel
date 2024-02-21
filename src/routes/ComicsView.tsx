@@ -1,0 +1,56 @@
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import config from '../axios/config';
+import './ComicsView.css';
+
+
+interface Comics {
+    id: string;
+    title: string;
+    description: string;
+    issuenumber: number;
+    thumbnail: {
+        path: string;
+        extension: string;
+    }; 
+}
+
+const ComicsView = () => {
+
+   const { id } = useParams<{ id: string }>();
+  const [comic, setComic] = useState<Comics | null>(null);
+
+  useEffect(() => {
+    const fetchComic = async () => {
+      try {
+        const response = await config.get(`/comics/${id}`);
+        setComic(response.data.data.results[0]);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchComic();
+  }, [id]);
+
+  if (!comic) {
+    return <div>Loading...</div>;
+  }
+
+
+  return (
+    <div className="comics-container" >
+      <img className="comics-image" src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
+      <div className="comics-details" >
+        <h1 className="comics-title" >{comic.title}</h1>
+        <p  className="comic-description"> {comic.description === '' ? (
+        <p>Descrição não disponível</p>
+        ) : (
+        <p>{comic.description}</p>
+        )}</p>
+      </div>
+    </div>
+  )
+}
+
+export default ComicsView

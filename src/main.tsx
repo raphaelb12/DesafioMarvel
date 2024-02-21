@@ -6,9 +6,10 @@ import './index.css'
 import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom'
 
 //páginas
-import Home from './routes/Home';
+import Home from './routes/Home.tsx';
 import Characters from './routes/Characters.tsx';
-import BuscarChar from './routes/BuscarChar.tsx'
+import Comics from './routes/Comics.tsx'
+import ComicsView from './routes/ComicsView.tsx'
 
 const router = createBrowserRouter([{
   element: <App/>,
@@ -18,15 +19,20 @@ const router = createBrowserRouter([{
       element: <Home />
     },
     {
-      path: '/:id',
+      path: 'characters/:id',
       element: <Characters />
     
     },
     {
-      path: '/buscarChar',
-      element: <BuscarChar />
-      
-    }
+      path: '/comics/',
+      element: <Comics />
+    
+    },
+    {
+      path: '/comics/:id',
+      element: <ComicsView />
+    
+    },
   ]
 }])
 
