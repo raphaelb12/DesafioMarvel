@@ -43,6 +43,7 @@ const Characters = () => {
       </div>
     </div>
   );
-}
+    
+            }  
 
 export default Characters;

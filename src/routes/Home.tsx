@@ -41,12 +41,35 @@ const Home = () => {
       console.log(err);
     }
   }, [loadCharacters]);
+
+  //Função que busca os personagens pelo nome
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setText(value);
+    if (value === '') {
+      config.get('/characters')
+        .then(response => setLoadCharacters(response.data.data.results))
+        .catch(err => console.log(err));
+    } else {
+      config.get('/characters', {
+        params: {
+          nameStartsWith: value,
+        }
+      })
+        .then(response => setLoadCharacters(response.data.data.results))
+        .catch(err => console.log(err));
+    }
+  }
+
+  const [text, setText] = useState('');
   
   
   return (
     location.pathname === '/' && (
       <div>
         <h1>Personagens do universo Marvel</h1>
+        <input value={text} type="text" onChange={(e)=>handleChange(e)} />
+          
         <div className="container">
           {loadCharacters.map((character) => (
             <div key={character.id} className="card">
