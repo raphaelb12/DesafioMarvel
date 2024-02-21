@@ -5,14 +5,11 @@ const Navbar = () => {
   return (
     <nav className="navbar">
     <h2>
-        <Link to ={'/'}>Nav Desafio Marvel</Link>
+        <Link to ={'/'}>Marvel API</Link>
         </h2>
     <ul>
         <li>
-            <Link to = {'/'}> Home </Link>
-        </li>
-        <li>
-            <Link to = {'/buscarChar'} className="bttn"> Buscar Personagem </Link>
+            <Link to = {'/'} className="bttn"> Home </Link>
         </li>
     </ul>
     

@@ -3,10 +3,12 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem;
+    background-color: #B41F23;
 }
 
 .navbar h2{
     opacity: 1;
+    font-size: 35px;
 }
 .navbar ul{
     display: flex;
@@ -23,9 +25,11 @@
 
 .search-bar{
     width: 90%;
+    height: 30px;
     margin: 0 auto;
     display: flex;
     align-items: center;
+    margin-top: 18px;
 }
 .header .search{
     outline: none;

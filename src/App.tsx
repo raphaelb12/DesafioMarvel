@@ -7,7 +7,6 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Navbar />
-      <h1>Desafio Marvel</h1>
       <div className="container">
         <Outlet />
       </div>

@@ -39,7 +39,11 @@ const Characters = () => {
       <img className="character-image" src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt={character.name} />
       <div className="character-details">
         <h1 className="character-name">{character.name}</h1>
-        <p className="character-description">{character.description}</p>
+        <p className="character-description"> {character.description === '' ? (
+        <p>Descrição não disponível</p>
+        ) : (
+        <p>{character.description}</p>
+        )}</p>
       </div>
     </div>
   );
