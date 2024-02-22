@@ -1,12 +1,29 @@
-.container{
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 0 2rem;
+App.css
+
+
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 2rem;
 }
 
-.header .bg img{
-    width: 100%;
-    height: 550px;
-    align-items: center; 
-    justify-content: center;
-    }
+.header .bg img {
+  width: 100%;
+  height: 550px;
+  align-items: center;
+  justify-content: center;
+}
+
+.App .bg {
+  width: 1200px;
+  height: 550px;
+}
+
+.App .bg img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: center;
+}

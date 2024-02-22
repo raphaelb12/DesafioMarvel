@@ -8,8 +8,11 @@ import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom'
 //páginas
 import Home from './routes/Home.tsx';
 import Characters from './routes/Characters.tsx';
+import CharactersList from './routes/CharactersList.tsx';
 import Comics from './routes/Comics.tsx'
 import ComicsView from './routes/ComicsView.tsx'
+import MarvelEvents from './routes/MarvelEvents.tsx'
+import MarvelEventsViewer from './routes/MarvelEventsViewer.tsx'
 
 const router = createBrowserRouter([{
   element: <App/>,
@@ -17,6 +20,11 @@ const router = createBrowserRouter([{
     {
       path: '/',
       element: <Home />
+    },
+    {
+      path: 'characters/',
+      element: <CharactersList />
+    
     },
     {
       path: 'characters/:id',
@@ -31,6 +39,16 @@ const router = createBrowserRouter([{
     {
       path: '/comics/:id',
       element: <ComicsView />
+    
+    },
+    {
+      path: '/events',
+      element: <MarvelEvents />
+    
+    },
+    {
+      path: '/events/:id',
+      element: <MarvelEventsViewer />
     
     },
   ]

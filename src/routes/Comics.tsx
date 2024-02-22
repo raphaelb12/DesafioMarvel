@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './Comics.css';
+import "./Lists.css";
 import config from '../axios/config'
 
 interface Comics {
@@ -86,9 +86,6 @@ const Comics = () => {
                 <button className="bttn" onClick={handleMore}>
                     Load more Comics
                 </button>
-                <div className="bg2">
-                    <img src="https://cdn.marvel.com/content/1x/avengers_2.jpg" alt="" />
-                </div>
             </div>
         )
     );

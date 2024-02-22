@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import config from '../axios/config';
-import './ComicsView.css';
+import './view.css';
+
 
 
 interface Comics {
     id: string;
     title: string;
     description: string;
-    issuenumber: number;
     thumbnail: {
         path: string;
         extension: string;
@@ -39,11 +39,11 @@ const ComicsView = () => {
 
 
   return (
-    <div className="comics-container" >
-      <img className="comics-image" src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
-      <div className="comics-details" >
-        <h1 className="comics-title" >{comic.title}</h1>
-        <p  className="comic-description"> {comic.description === '' ? (
+    <div className="view-container" >
+      <img className="view-image" src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
+      <div className="view-details" >
+        <h1 className="view-title" >{comic.title}</h1>
+        <p  className="view-description"> {comic.description === '' ? (
         <p>Descrição não disponível</p>
         ) : (
         <p>{comic.description}</p>

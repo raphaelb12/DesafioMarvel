@@ -1,31 +1,44 @@
-.characters-container {
+.view-container {
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 20px;
   }
   
-  .character-details {
+  .view-details {
     flex: 1;
     max-width: 600px; 
   }
   
-  .character-image {
+  .view-image {
     max-width: 700px; 
     border-radius: 8px; 
     margin-right: 20px; 
   }
   
-  .character-name {
+  .view-title {
     margin-left: 20px;
     font-size: 48px;
     font-weight: bold;
     margin-bottom: 10px;
   }
   
-  .character-description {
+  .view-description {
     font-size: 16px;
     margin-left: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    opacity: 1;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .view-other {
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: 25px;
+    margin-bottom: 1px;
     border: 1px solid #ddd;
     border-radius: 50px;
     opacity: 1;

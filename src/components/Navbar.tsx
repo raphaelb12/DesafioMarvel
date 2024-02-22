@@ -12,7 +12,6 @@ const Navbar = () => {
             <Link to = {'/'} className="bttn"> Home </Link>
         </li>
     </ul>
-    
     </nav>
 
   )

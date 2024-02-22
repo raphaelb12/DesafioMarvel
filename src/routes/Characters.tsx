@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import config from '../axios/config';
-import './Characters.css';
+import "./view.css";
+
 
 interface Character {
   id: string;
@@ -35,11 +36,11 @@ const Characters = () => {
   }
 
   return (
-    <div className="characters-container">
-      <img className="character-image" src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt={character.name} />
-      <div className="character-details">
-        <h1 className="character-name">{character.name}</h1>
-        <p className="character-description"> {character.description === '' ? (
+    <div className="view-container">
+      <img className="view-image" src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt={character.name} />
+      <div className="view-details">
+        <h1 className="view-name">{character.name}</h1>
+        <p className="view-description"> {character.description === '' ? (
         <p>Descrição não disponível</p>
         ) : (
         <p>{character.description}</p>
