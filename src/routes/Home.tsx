@@ -1,7 +1,4 @@
-import React, { useCallback } from "react";
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import config from "../axios/config";
+import { Link} from "react-router-dom";
 import "./Home.css";
 const Home = () => {
   return (
