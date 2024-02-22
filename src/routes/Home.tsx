@@ -7,6 +7,7 @@ const Home = () => {
   return (
     <div>
       <h1>Home</h1>
+      <h2>Interaja com os personagens, quadrinhos e eventos do universo Marvel</h2>
 <ul>
     <Link to={`/characters`} className="button">
                 Personagens
@@ -18,7 +19,7 @@ const Home = () => {
            
  
     <Link to={`/events`}className="button">
-                Events
+                Eventos
               </Link>
            </ul>
     </div>

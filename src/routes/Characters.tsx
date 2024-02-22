@@ -4,6 +4,7 @@ import config from '../axios/config';
 import "./view.css";
 
 
+//interface para receber os dados dos personagens
 interface Character {
   id: string;
   name: string;
@@ -15,13 +16,16 @@ interface Character {
 }
 
 const Characters = () => {
+   // obtendo o parâmetro 'id' da URL 
   const { id } = useParams<{ id: string }>();
   const [character, setCharacter] = useState<Character | null>(null);
 
+  //faz uma requisição para obter informações do personagem
   useEffect(() => {
     const fetchCharacter = async () => {
       try {
         const response = await config.get(`/characters/${id}`);
+         // Atualizando o estado do personagem com os dados obtidos da requisição
         setCharacter(response.data.data.results[0]);
       } catch (err) {
         console.log(err);
@@ -35,6 +39,7 @@ const Characters = () => {
     return <div>Loading...</div>;
   }
 
+  // exibe as informações do personagem
   return (
     <div className="view-container">
       <img className="view-image" src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt={character.name} />

@@ -4,6 +4,10 @@ body {
   justify-content: center;
   margin: 0;
 }
+h2 {
+  font-size: 30px;
+  margin-bottom: 25px;
+}
 
 /* Cardlist */
 .container {
@@ -39,94 +43,14 @@ body {
   margin-left: 200px;
 }
 
-h2 {
-  font-size: 18px;
-  margin-bottom: 8px;
-}
+
 
 h1 {
   font-size: 50px;
-  margin-bottom: 38px;
+  margin-bottom: 15px;
   text-align: left;
 }
 
 
 
 
-
-  /*
-
-  .img-container {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-  }
-  .container{
-    width: 100%;
-  }
-
-  .container .bg img{
-    background-color: aqua;
-    width: 100%;
-    height: 550px;
-    align-items: center; 
-    justify-content: center; }
-
-    .header .bg2 img{
-      width: 100%;
-      height: 550px;
-      align-items: center; 
-      justify-content: center; }
-  h1{
-    margin-bottom: 20px;
-    color: #B41F23;
-  }
-  
-  h2 {
-    font-size: 18px;
-    margin-top: 8px;
-  }
-
-  p {
-    font-size: 14px;
-    color: #777;
-    
-  }
-
-  .card p {
-    width: 100px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-  }
-  
-
-  a {
-    display: block;
-    margin-top: 12px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  
-    
-    .bttn:hover {
-      background-color: #0056b3;
-    }
-
-    .search-bar{
-      width: 90%;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-  }
- 
-  }*/ 

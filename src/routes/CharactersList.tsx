@@ -72,11 +72,12 @@ const CharactersList = () => {
   return (
     location.pathname === "/characters" && (
       <div>
-        <h1>Personagens do universo Marvel</h1>
+        <h1>MARVEL CHARACTERS</h1>
+        <h2>Os heróis, vilões e todos os personagens do universo Marvel</h2>
         <input
           value={text}
           type="text"
-          placeholder="Search Here"
+          placeholder="Pesquise aqui..."
           className="search-bar"
           onChange={(e) => handleChange(e)}
         />
@@ -95,7 +96,7 @@ const CharactersList = () => {
                 <p>{character.description}</p>
               )}
               <Link to={`/characters/${character.id}`}>
-                Ver mais sobre o personagem
+              <button className="viewbttn">Ver mais sobre o personagem</button>
               </Link>
             </div>
           ))}

@@ -28,6 +28,7 @@ const MarvelEvents = () => {
         }
     }, [location]);
 
+  //Função que carrega mais personagens vindos da API
     const handleMore = useCallback(async () => {
         try {
             const offset = loadEvents.length;
@@ -46,6 +47,7 @@ const MarvelEvents = () => {
     const [text, setText] = useState('');
 
 
+    //Função que busca os personagens pelo nome
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setText(value);
@@ -71,7 +73,12 @@ const MarvelEvents = () => {
     location.pathname === '/events' && (
         <div>
             <h1>MARVEL EVENTS</h1>
-            <input value={text} type="text" placeholder="Search Here" className="search-bar" onChange={e => handleChange(e)} />
+            <h2>Os eventos, histórias e acontecimentos do universo Marvel</h2>
+            <input value={text} 
+            type="text" 
+            placeholder="Pesquise aqui..."
+             className="search-bar"
+              onChange={e => handleChange(e)} />
             <div className="container">
                 {loadEvents.map(events => (
                     <div key={events.id} className="card">
@@ -82,12 +89,12 @@ const MarvelEvents = () => {
                         ) : (
                             <p>{events.description}</p>
                         )}
-                        <Link to={`/events/${events.id}`}>Ver mais sobre o quadrinho</Link>
+                        <Link to={`/events/${events.id}`}><button className="viewbttn">Ver mais sobre o evento</button></Link>
                     </div>
                 ))}
             </div>
             <button className="bttn" onClick={handleMore}>
-                Load more events
+                Mais eventos
             </button>
         </div>
     )

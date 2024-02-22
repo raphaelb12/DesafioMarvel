@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import "./Lists.css";
 import config from '../axios/config'
 
+//interface para receber os dados dos quadrinhos
 interface Comics {
     id: string;
     title: string;
@@ -18,6 +19,7 @@ const Comics = () => {
     const [loadComics, setLoadComics] = useState<Comics[]>([]);
     const location = useLocation();
 
+    //faz uma requisição para obter informações dos quadrinhos
     useEffect(() => {
         if (location.pathname === '/comics') {
             config
@@ -27,6 +29,7 @@ const Comics = () => {
         }
     }, [location]);
 
+  //Função que carrega mais personagens vindos da API
     const handleMore = useCallback(async () => {
         try {
             const offset = loadComics.length;
@@ -44,6 +47,7 @@ const Comics = () => {
 
     const [text, setText] = useState('');
 
+        //Função que busca os personagens pelo nome
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setText(value);
@@ -68,7 +72,12 @@ const Comics = () => {
         location.pathname === '/comics' && (
             <div>
                 <h1>MARVEL COMICS</h1>
-                <input value={text} type="text" placeholder="Search Here" className="search-bar" onChange={e => handleChange(e)} />
+                <h2>Onde toda a mágica nasce, nos quadrinhos do universo Marvel</h2>
+                <input value={text}
+                 type="text"
+                  placeholder="Pesquise aqui..." 
+                className="search-bar"
+                 onChange={e => handleChange(e)} />
                 <div className="container">
                     {loadComics.map(comics => (
                         <div key={comics.id} className="card">
@@ -79,12 +88,14 @@ const Comics = () => {
                             ) : (
                                 <p>{comics.description}</p>
                             )}
-                            <Link to={`/comics/${comics.id}`}>Ver mais sobre o quadrinho</Link>
+                            <Link to={`/comics/${comics.id}`}>
+                            <button className="viewbttn">Ver mais sobre o comic</button>
+                                </Link>
                         </div>
                     ))}
                 </div>
                 <button className="bttn" onClick={handleMore}>
-                    Load more Comics
+                    Mais comics
                 </button>
             </div>
         )

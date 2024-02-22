@@ -15,6 +15,20 @@ body {
   margin-right: 200px;
 }
 
+.viewbttn {
+  font-weight: bold;
+  border: 1px solid #fff;
+  padding: 0.4rem 0.2rem;
+  border-radius: 1rem;
+  opacity: 1;
+  margin-top: 12px;
+}
+
+h2{
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
 /* Cardlist */
 .container {
   display: flex;
