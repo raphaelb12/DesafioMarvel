@@ -24,3 +24,6 @@ NodeJs, TypeScript, Vite e Axios
 2. A aplicação possui uma página que lista mais detalhes sobre um item selecionado
 3. A aplicação permite que o usuário busque itens por meio do nome
 4. O usuário pode escolher qual tipo de conteúdo deseja consumir filtrando entre personagens, quadrinhos e eventos da Marvel.
+
+
+https://desafio-marvel-api-kappa.vercel.app/
