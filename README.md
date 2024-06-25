@@ -1,6 +1,3 @@
-Esse projeto foi desenvolvido como teste técnico para vaga de estágio na MERX energia.
-
-
 A proposta do teste era consumir a Marvel comics API e construir um website que permita a visualização dos personagens retornados por ela.
 
 
